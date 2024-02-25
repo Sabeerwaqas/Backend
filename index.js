@@ -1,9 +1,49 @@
-import express from "express";
+// import * as fs from 'node:fs';
+// const app = express();
 
-const app = express();
+// const PORT = 3004;
 
-const PORT = 3004;
+// app.listen(PORT, (req, res)=>{
+// console.log(`Server is running on port ${PORT}`)
+// })
 
-app.listen(PORT, (req, res)=>{
-console.log(`Server is running on port ${PORT}`)
-})
+// Synchronously reading file
+
+// const syncT1=performance.now()
+// const txt = fs.readFileSync("./dummyData.txt", "utf-8");
+// console.log(txt);
+// const syncT2 = performance.now();
+
+// console.log(syncT2-syncT1)
+
+// Asynchronously reading file
+
+// const t1 = performance.now();
+
+// fs.readFile('./dummyData.txt', 'utf-8', (error, asyncData)=>{
+// console.log(asyncData)
+// })
+
+// const t2 = performance.now();
+// console.log("Executed result")
+// console.log(t2-t1);
+
+// console.log("Sync=> ", syncT2-syncT1);
+// console.log("Async=> ",t2-t1);
+
+const http = require("http");
+
+const data = {name: "Sabeer"};
+
+const server = http.createServer((req, res) => {
+  console.log("Hello world");
+console.log(req.url)
+  // Create header
+
+  res.setHeader('DummyHeader', "DummyValue");
+  res.setHeader('Content-Type', 'application/json')
+
+  res.end(JSON.stringify(data));
+});
+
+server.listen(8080);

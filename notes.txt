@@ -1,0 +1,9 @@
+What is Node JS?
+
+It is a javaScript runtime environment that is use to run JS outside the browser. It is very helpful 
+when we want to deal "Heavy I/O" files and want to build server using less code known as "small code 
+footprint."
+
+readFileSync();
+
+Learn about readFileSync = https://www.geeksforgeeks.org/node-js-fs-readfilesync-method/
