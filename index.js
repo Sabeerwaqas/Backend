@@ -1,3 +1,4 @@
+require('dotenv').config()
 // import * as fs from 'node:fs';
 // const app = express();
 
@@ -31,19 +32,39 @@
 // console.log("Sync=> ", syncT2-syncT1);
 // console.log("Async=> ",t2-t1);
 
-const http = require("http");
+// const http = require("http");
 
-const data = {name: "Sabeer"};
+// const data = {name: "Sabeer"};
 
-const server = http.createServer((req, res) => {
-  console.log("Hello world");
-console.log(req.url)
-  // Create header
+// const server = http.createServer((req, res) => {
+//   console.log("Hello world");
+// console.log(req.url)
+// Create header
 
-  res.setHeader('DummyHeader', "DummyValue");
-  res.setHeader('Content-Type', 'application/json')
+//   res.setHeader('DummyHeader', "DummyValue");
+//   res.setHeader('Content-Type', 'application/json')
 
-  res.end(JSON.stringify(data));
+//   res.end(JSON.stringify(data));
+// });
+
+// server.listen(8080);
+
+const express = require("express");
+const app = express();
+const port = 3000;
+
+app.get("/", (req, res) => {
+  res.send("Hello World!");
 });
 
-server.listen(8080);
+app.get('/twitter',(req, res)=>{
+  res.send("Welcome")
+})
+
+app.get('/login', (req, res)=>{
+  res.send("<h1>This is login page</h1>")
+})
+
+app.listen(process.env.PORT, () => {
+  console.log(`Example app listening on port ${port}`);
+});
